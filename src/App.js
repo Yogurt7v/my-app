@@ -2,20 +2,26 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [value, setValue] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   return (
     <div className="App">
-      <h1>Counter</h1>
-      <h2>{value}</h2>
-      <div className="buttons">
-        <button className="buttonPlus" onClick={() => setValue(value + 1)}>
-          Increment
-        </button>
-        <button className="buttonMinus" onClick={() => setValue(value - 1)}>
-          Decrement
-        </button>
-      </div>
+      <button onClick={() => setVisible(!visible)} className="open">
+        Open
+      </button>
+      {visible && (
+        <div className="gif">
+          <iframe
+            src="https://giphy.com/embed/YRcXl6VfNhCorklI0R"
+            width="480"
+            height="270"
+            frameBorder="0"
+            class="giphy-embed"
+            allowFullScreen
+            className="gif"
+          ></iframe>
+        </div>
+      )}
     </div>
   );
 }
